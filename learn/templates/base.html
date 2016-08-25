@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{#定义了head title body三个块, 之后的extends的,把对应的块复写一下就好了#}
+<head>
+    {% block head %}
+    <title>{% block title %}{% endblock %} - My Application</title>
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+    {% endblock %}
+</body>
+
+</html>

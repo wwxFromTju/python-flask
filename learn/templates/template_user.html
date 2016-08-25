@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#判断的结构#}
+{% if name != 'hehe' %}
+
+    {#
+    后面的capitalize是提供的过滤器
+    safe 渲染值不转义
+    capitalize 首字母大写, 其实字母小写
+    lower 把值转换为小写
+    upper 把值转换为大写
+    title 把首字母变为大写
+    trim 把值的首尾空格去掉
+    striptags 渲染之前把值所有的HTML标签都删掉
+    #}
+    <h1>capitalize {{ name|capitalize}}</h1>
+    <h1>safe {{ name|safe}}</h1>
+    <h1>lower {{ name|lower}}</h1>
+    <h1>upper {{ name|upper}}</h1>
+    <h1>title {{ name|title}}</h1>
+    <h1>trim {{ name|trim}}</h1>
+    <h1>striptags {{ name|striptags}}</h1>
+
+{% else %}
+
+    <h1>No Name</h1>
+
+{% endif %}
+
+{#在对应的文件中定义了宏#}
+{% import 'macros.html' as macros %}
+
+{#使用了宏和for语句#}
+<ul>
+    {% for comment in comments %}
+        {{ macros.render_comment(comment) }}
+    {% endfor %}
+</ul>
+
+</body>
+</html>

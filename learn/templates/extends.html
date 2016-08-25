@@ -1,0 +1,18 @@
+{#继承了之前的模版#}
+{% extends "base.html" %}
+
+{#覆盖了对应的title块#}
+{% block title %}Index{% endblock %}
+
+{#覆盖了对应的head块#}
+{% block head %}
+{#因为title块是定义在head块中的, 所以需要用super来直接引入原来定义的块#}
+    {{ super() }}
+    <style>
+    </style>
+{% endblock %}
+
+{#覆盖原来的body块#}
+{% block body %}
+    <h1>Hello, World!</h1>
+{% endblock %}
